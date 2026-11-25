@@ -20,6 +20,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 /**
@@ -30,6 +31,7 @@ import org.junit.jupiter.api.Test
 class CoExchangeFilterFunctionTests {
 
 	@Test
+	@Disabled("Sealed build: flaky on GitHub Actions JDK 22 toolchain leg - MockKException: Can't instantiate proxy for class ClientResponse")
 	fun exchange() {
 		val response = mockk<ClientResponse>()
 		val exchangeFunction = MyCoExchangeFunction(response)
